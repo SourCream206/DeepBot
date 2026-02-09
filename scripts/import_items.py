@@ -8,7 +8,6 @@ XLSX_PATH = BASE_DIR / "data" / "items.xlsx"
 
 df = pd.read_excel(XLSX_PATH)
 
-# normalize column names
 df.columns = [c.strip().lower() for c in df.columns]
 
 conn = sqlite3.connect(DB_PATH)
