@@ -20,6 +20,14 @@ def search_items(query):
     conn.close()
     return results
 
+def load_all_item_names():
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    cur.execute("SELECT name FROM items")
+    names = [row[0].lower() for row in cur.fetchall()]
+    conn.close()
+    return names
+
 
 if __name__ == "__main__":
     while True:
